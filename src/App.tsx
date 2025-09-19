@@ -1,10 +1,13 @@
+import { Button } from '@chakra-ui/react/button'
 import './App.css'
+import FrontPage from './components/FrontPage/FrontPage'
 
 function App() {
 
   return (
     <>
-      <h1>hei</h1>
+      <FrontPage />
+      <Button></Button>
     </>
   )
 }
