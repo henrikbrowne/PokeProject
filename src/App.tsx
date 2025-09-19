@@ -1,14 +1,17 @@
-import { Button } from '@chakra-ui/react/button'
 import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import DetailsPage from './views/DetailsPage'
 import FrontPage from './components/FrontPage/FrontPage'
 
 function App() {
-
   return (
-    <>
-      <FrontPage />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<FrontPage />} />
+        <Route path="/details" element={<DetailsPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
-export default App
+export default App;
