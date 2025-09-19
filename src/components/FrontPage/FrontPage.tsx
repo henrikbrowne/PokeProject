@@ -27,7 +27,7 @@ export default function FrontPage() {
       <BuzzwordRain words={buzzwords} count={50} maxDuration={16} color="whiteAlpha.800" zIndex={1} />
 
       <Box className="front-page-content-container" position="relative" zIndex={2}>
-        <div className="front-page-central-content">
+        <Box className="front-page-central-content" >
           <Text className="front-page-central-text">
             The next generation pokemon indexing
           </Text>
@@ -36,7 +36,7 @@ export default function FrontPage() {
           </Link>
         <PoweredByAi />
 
-        </div>
+        </Box>
       </Box>
     </Box>
   );
