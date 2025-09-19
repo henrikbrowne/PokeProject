@@ -7,7 +7,6 @@ type PokemonPreviewProps = {
 
 const PokemonPreview = ( {pokemonName} : PokemonPreviewProps) => {
     const { data, error, isLoading } = useGetPokemonByNameQuery(pokemonName);
-    console.log(data);
 
     return (
         <>
