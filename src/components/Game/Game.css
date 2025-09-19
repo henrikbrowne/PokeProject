@@ -1,0 +1,62 @@
+/* Game container */
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Score display */
+.score-text {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+}
+
+/* Difficulty label */
+.difficulty-label {
+  font-size: 1rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+/* Difficulty select */
+.difficulty-select {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--secondary);
+  background-color: var(--primary);
+  color: var(--accent);
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease;
+}
+
+.difficulty-select:focus {
+  border-color: var(--accent);
+}
+
+/* Buttons (Chakra overrides) */
+.pokemon-button {
+  margin: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent);
+  color: var(--bg-color);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pokemon-button:hover {
+  background-color: var(--secondary);
+  color: var(--accent);
+}
+
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+

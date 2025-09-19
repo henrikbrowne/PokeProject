@@ -3,6 +3,7 @@ import { useGetAllPokemonNamesQuery } from "../../services/pokemon";
 import CensoredPokemon from "./CensoredPokemon";
 import { Button } from "@chakra-ui/react";
 import { Text } from "@chakra-ui/react";
+import './Game.css'
 
 const Game = () => {
     const [score, setScore] = React.useState(0);
@@ -40,9 +41,10 @@ const Game = () => {
 
     const randomIndex = Math.floor(Math.random() * selectedPokemons.length);
 
-    return <>
-        <Text>Score: {score}</Text>
-        <label className="block text-sm font-medium mb-1" htmlFor="difficulty-select">
+    return (
+        <div className="game-container">
+        <Text className="score-text">Score: {score}</Text>
+        <label className="difficulty-label" htmlFor="difficulty-select">
         Difficulty
         </label>
         <select
@@ -53,7 +55,7 @@ const Game = () => {
             Math.min(DIFFICULTY_MAX, Math.max(DIFFICULTY_MIN, Number(e.target.value)))
             )
         }
-        className="border rounded-md px-3 py-2"
+        className="difficulty-select"
         >
         {difficultyLabels.map((label, idx) => (
             <option key={idx} value={idx}>
@@ -62,9 +64,19 @@ const Game = () => {
         ))}
         </select>
         <CensoredPokemon name={selectedPokemons[randomIndex].name} difficulty={difficulty} />
-        {selectedPokemons.map((pokemon) => (
-            <Button onClick={handleClick(selectedPokemons[randomIndex].name, pokemon.name)}  key={pokemon.name}>{pokemon.name}</Button>
-        ))}
-    </>
+        <div className="button-grid">
+            {selectedPokemons.map((pokemon) => (
+                <Button
+                className="pokemon-button"
+                onClick={handleClick(selectedPokemons[randomIndex].name, pokemon.name)}
+                key={pokemon.name}
+                >
+                {pokemon.name}
+                </Button>
+            ))}
+            </div>
+        </div>
+    )
 }
-export default Game
+
+export default Game;
