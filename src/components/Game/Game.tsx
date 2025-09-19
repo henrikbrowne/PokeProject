@@ -6,6 +6,10 @@ import { Text } from "@chakra-ui/react";
 
 const Game = () => {
     const [score, setScore] = React.useState(0);
+    const [difficulty, setDifficulty] = React.useState(0);
+    const DIFFICULTY_MIN = 0;
+    const DIFFICULTY_MAX = 3;
+    const difficultyLabels = ["0 – Easy", "1 – Normal", "2 – Hard", "3 – Expert"];
 
     const handleClick = (selected:string, expected: string) => () => {
         console.log(`Selected: ${selected}, Expected: ${expected}`);
@@ -38,7 +42,26 @@ const Game = () => {
 
     return <>
         <Text>Score: {score}</Text>
-        <CensoredPokemon name={selectedPokemons[randomIndex].name} />
+        <label className="block text-sm font-medium mb-1" htmlFor="difficulty-select">
+        Difficulty
+        </label>
+        <select
+        id="difficulty-select"
+        value={difficulty}
+        onChange={(e) =>
+            setDifficulty(
+            Math.min(DIFFICULTY_MAX, Math.max(DIFFICULTY_MIN, Number(e.target.value)))
+            )
+        }
+        className="border rounded-md px-3 py-2"
+        >
+        {difficultyLabels.map((label, idx) => (
+            <option key={idx} value={idx}>
+            {label}
+            </option>
+        ))}
+        </select>
+        <CensoredPokemon name={selectedPokemons[randomIndex].name} difficulty={difficulty} />
         {selectedPokemons.map((pokemon) => (
             <Button onClick={handleClick(selectedPokemons[randomIndex].name, pokemon.name)}  key={pokemon.name}>{pokemon.name}</Button>
         ))}
