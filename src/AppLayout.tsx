@@ -1,7 +1,7 @@
 import { Route, Routes, useLocation } from "react-router";
 import FrontPage from "./components/FrontPage/FrontPage";
 import DetailsPage from "./views/DetailsPage";
-import Navbar from "./components/NavBar";
+import Navbar from "./components/Navbar/NavBar";
 import OverviewPage from "./views/OverviewPage";
 import GamePage from "./views/GamePage";
 
@@ -13,6 +13,7 @@ function AppLayout() {
   return (
     <>
       {!hideNavbar && <Navbar />}
+      <div style={{ paddingTop: hideNavbar ? 0 : "6rem" }}>
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="/details" element={<DetailsPage />} />
@@ -20,6 +21,7 @@ function AppLayout() {
         <Route path="/game" element={<GamePage />}></Route>
         <Route path="/overview" element={<OverviewPage />}></Route>
       </Routes>
+      </div>
     </>
   );
 }
