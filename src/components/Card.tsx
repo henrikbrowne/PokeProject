@@ -4,7 +4,7 @@ interface CardProps {
   name: string;
   hp: string;
   abilityNames: string[];
-  type: string[];
+  type: string;
   image: string;
 }
 
@@ -42,7 +42,7 @@ const Card: React.FC<CardProps> = ({
       height="350px"
       borderRadius="lg"
       overflow="hidden"
-      bg={PokemonTypeColor[type[0]]}
+      bg={PokemonTypeColor[type]}
       boxShadow="lg"
       p={3}
     >
@@ -54,7 +54,7 @@ const Card: React.FC<CardProps> = ({
         <VStack align="flex-end">
           <Text fontSize="sm">HP {hp}</Text>
           <Text fontSize="xs" textTransform="capitalize">
-            {type[0]}
+            {type}
           </Text>
         </VStack>
       </HStack>
