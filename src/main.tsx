@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.tsx'
 import { Provider } from 'react-redux'
 import { store } from './store.ts'
-import { Provider as ChakraProvider } from "@/components/ui/provider"
+import { Provider as ChakraProvider } from "./components/ui/provider"
 import { BrowserRouter } from "react-router";
 
 
