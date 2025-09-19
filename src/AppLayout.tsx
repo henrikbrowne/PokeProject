@@ -16,6 +16,7 @@ function AppLayout() {
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="/details" element={<DetailsPage />} />
+        <Route path="/details/:name" element={<DetailsPage />} />
         <Route path="/game" element={<Game />}></Route>
         <Route path="/overview" element={<OverviewPage />}></Route>
       </Routes>
