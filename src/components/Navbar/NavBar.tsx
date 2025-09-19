@@ -1,12 +1,14 @@
 import { NavLink } from "react-router";
+import './Navbar.css';
 
 export default function NavBar() {
   return (
-    <nav>
+    <nav className="navbar">
       <NavLink to="/" end>Home</NavLink>
-      <NavLink to="/details" end>Details</NavLink>
+      <NavLink to="/overview">Pokédex</NavLink>
       <NavLink to="/game">Game</NavLink>
-      <NavLink to="/overview">Overview</NavLink>
     </nav>
   );
 }
+
+
