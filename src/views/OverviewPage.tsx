@@ -13,6 +13,7 @@ const OverviewPage = () => {
     
     return (
         <>
+
             {data?.results.slice(0, 10).map((pokemon) => (
             <PokemonPreview key={pokemon.name} pokemonName={pokemon.name} />
             ))} 
