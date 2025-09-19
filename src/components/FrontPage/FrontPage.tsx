@@ -3,6 +3,7 @@ import bg from "../../assets/background_img.jpg";
 import "./FrontPage.css";
 import BuzzwordRain from "./BuzzWordRain";
 import PoweredByAi from "./PoweredByAI";
+import { Link } from "react-router-dom";
 
 const buzzwords = [
   "Pikachu","Charizard","Bulbasaur","Squirtle","Mewtwo","Eevee","Snorlax",
@@ -30,7 +31,9 @@ export default function FrontPage() {
           <Text className="front-page-central-text">
             The next generation pokemon indexing
           </Text>
-          <Button className="front-page-button">Experience</Button>
+          <Link to="/overview">
+            <Button className="front-page-button">Experience</Button>          
+          </Link>
         <PoweredByAi />
 
         </div>

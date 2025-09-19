@@ -1,16 +1,12 @@
 import { NavLink } from "react-router";
 
-export function NavBar() {
+export default function NavBar() {
   return (
     <nav>
-      <NavLink to="/" end>
-        Home
-      </NavLink>
-      <NavLink to="/trending" end>
-        Trending Concerts
-      </NavLink>
-      <NavLink to="/concerts">All Concerts</NavLink>
-      <NavLink to="/account">Account</NavLink>
+      <NavLink to="/" end>Home</NavLink>
+      <NavLink to="/details" end>Details</NavLink>
+      <NavLink to="/game">Game</NavLink>
+      <NavLink to="/overview">Overview</NavLink>
     </nav>
   );
 }

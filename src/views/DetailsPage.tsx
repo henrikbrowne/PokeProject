@@ -1,6 +1,8 @@
+import Card from "../components/card";
+
 const DetailsPage = () => {
     return (
-        <h1>Details Page</h1>
+        <Card name={"Name"} hp={"hp"} abilityNames={["ability1", "ability2"]} color={"lightblue"} type={"type"} image={"img"}></Card>
     )
 }
 
