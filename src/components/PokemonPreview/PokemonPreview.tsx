@@ -13,6 +13,8 @@ const PokemonPreview = ({ pokemonName }: PokemonPreviewProps) => {
   if (isLoading) return <div className="pokemon-loading">Loading...</div>;
   if (!data) return null;
 
+  console.log(data.types);
+
   return (
     <NavLink to={`/details/${data.species.name}`}>
         <div className="pokemon-card">
@@ -24,13 +26,6 @@ const PokemonPreview = ({ pokemonName }: PokemonPreviewProps) => {
         <h3 className="pokemon-name">
             {data.species.name.charAt(0).toUpperCase() + data.species.name.slice(1)}
         </h3>
-        <p><strong>Base experience:</strong> {data.base_experience}</p>
-        <p><strong>Height:</strong> {data.height}</p>
-        <p><strong>Weight:</strong> {data.weight}</p>
-        <p>
-            <strong>Type(s):</strong>{" "}
-            {data.types.map((t: any) => t.type.name).join(", ")}
-        </p>
         </div>
     </NavLink>
 
