@@ -6,7 +6,7 @@ export default function NavBar() {
       <NavLink to="/" end>Home</NavLink>
       <NavLink to="/details" end>Details</NavLink>
       <NavLink to="/game">Game</NavLink>
-      <NavLink to="/PLACEHOLDER">PLACEHOLDER</NavLink>
+      <NavLink to="/overview">Overview</NavLink>
     </nav>
   );
 }
