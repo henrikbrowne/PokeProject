@@ -1,3 +1,14 @@
+.background {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-size: contain;
+    background-position: center;
+    background-repeat: "no-repeat";
+    padding: 1rem;
+}
+
 .pokemon-image-sprite {
   position: absolute;
   left: 33%;
@@ -11,6 +22,16 @@
     transform: translate(-50%, -50%) scale(0.01);
   }
   to {
-    transform: translate(-50%, -50%) scale(10);
+    transform: translate(-50%, -50%) scale(8);
   }
+}
+
+.pokemon-flufftext {
+  background-color: rgba(15, 14, 14, 0.7);
+  position: absolute;
+  right: 10%;
+  top: 30%;
+  border-radius: 12px;
+  padding: 30px;
+  width: 30vw;
 }

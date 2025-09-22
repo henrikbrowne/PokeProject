@@ -12,18 +12,24 @@ const PokeomatResult = ({ pokemon, flufftext }: PokeomatResultProps) => {
 
   return (
     <>
-    <Flex flexDirection={"column"} backgroundImage={`url(${who})`}
+    <Box className="background" backgroundImage={`url(${who})`}
       h="100vh"
-      bgSize="contain"
+      bgSize="cover"
       bgPos="center"
       bgRepeat="no-repeat"
       p={4}>
-      <h1>Your Pokémon: {pokemon}</h1>
-      <Box className="pokemon-image-sprite">
-        {url && <Image rounded="md" src={url} alt={pokemon} />}
+    </Box>
+    <Box>
+      <Box className="pokemon-image-sprite"> 
+        {url && <Image rounded="md" src={url} alt={pokemon} />} 
       </Box>
-      <h2>{flufftext}</h2>
-    </Flex>
+
+      <Box className="pokemon-flufftext"> 
+        <h1>Din Pokémon: {pokemon}</h1> 
+        <h2>{flufftext}</h2> 
+      </Box>
+    </Box>
+
     </>
   );
 };
