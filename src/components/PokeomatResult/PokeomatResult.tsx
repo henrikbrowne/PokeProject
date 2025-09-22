@@ -10,7 +10,6 @@ const PokeomatResult = ({ pokemon, flufftext }: PokeomatResultProps) => {
   const { data, error, isLoading } = useGetPokemonByNameQuery(pokemon)
   const url = data?.sprites.front_default ?? "";
 
-
   return (
     <>
     <Flex flexDirection={"column"} backgroundImage={`url(${who})`}
