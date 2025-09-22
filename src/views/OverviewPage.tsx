@@ -3,6 +3,7 @@ import { useGetAllPokemonNamesQuery } from "../services/pokemon";
 import PokemonPreview from "../components/PokemonPreview/PokemonPreview";
 import { Box, Flex } from "@chakra-ui/react";
 import pokedex from '../assets/pokedex.png'
+import CsvSmokeTest from "../components/CSVSmokeTest";
 
 const OverviewPage = () => {
     const { data, error, isLoading } = useGetAllPokemonNamesQuery();
@@ -11,12 +12,9 @@ const OverviewPage = () => {
 
     if (isLoading) return <p>Loading Pokémons...</p>;
     if (error) return <p>Oh no, something went wrong!</p>
-
-
     
     return (
         <>
-
         <Flex backgroundImage={`url(${pokedex})`}
             bgRepeat="no-repeat"
             bgSize="contain"

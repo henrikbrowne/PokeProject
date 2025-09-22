@@ -1,12 +1,18 @@
-.front-page-content-container {
+.front-page-wrapper {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
-  text-align: center;
+}
 
+.front-page-content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  align-content: center;
   background: transparent;
 }
 
@@ -16,6 +22,8 @@
   align-items: center;
   justify-content: center;
   flex: 1;
+  border-radius: 16px;
+  padding: 30px;
   background-color: rgba(255, 255, 255, 0.7);
 }
 
