@@ -1,7 +1,8 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import { useGetPokemonByNameQuery } from "../services/pokemon";
 import { skipToken } from "@reduxjs/toolkit/query";
 import Card from "../components/Card";
+import { Button } from "@chakra-ui/react";
 
 
 const DetailsPage = () => {
@@ -9,6 +10,7 @@ const DetailsPage = () => {
     const { data, error, isLoading } = useGetPokemonByNameQuery(
         name ?? skipToken
     );
+    const navigate = useNavigate();
 
     if (!name) return null;
 
@@ -22,7 +24,10 @@ const DetailsPage = () => {
 
 
     return (
+        <>
         <Card name={pName} hp={pHp} abilityNames={pAbilities} type={pType} image={pImage}></Card>
+        <Button style={{top:"20px"}} onClick={() => navigate("/overview")}>Go back</Button>
+        </>
     )
 }
 
