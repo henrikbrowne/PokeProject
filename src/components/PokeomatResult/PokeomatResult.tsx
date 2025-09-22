@@ -1,29 +1,35 @@
 import { useGetPokemonByNameQuery } from "../../services/pokemon";
-import { Box, Flex, Image } from '@chakra-ui/react'
+import { Box, Button, Image } from '@chakra-ui/react'
 import who from "../../assets/who.png";
 import "./PokeomatResult.css"
 
-type PokeomatResultProps = { pokemon:string, flufftext:string };
+type PokeomatResultProps = { 
+  pokemon:string, 
+  flufftext:string, 
+  setIsResults: (value: boolean)=> void
+};
 
 
-const PokeomatResult = ({ pokemon, flufftext }: PokeomatResultProps) => {
+const PokeomatResult = ({ pokemon, flufftext, setIsResults }: PokeomatResultProps) => {
   const { data, error, isLoading } = useGetPokemonByNameQuery(pokemon)
   const url = data?.sprites.front_default ?? "";
 
   return (
     <>
-    <Flex flexDirection={"column"} backgroundImage={`url(${who})`}
-      h="100vh"
-      bgSize="contain"
-      bgPos="center"
-      bgRepeat="no-repeat"
-      p={4}>
-      <h1>Your Pokémon: {pokemon}</h1>
-      <Box className="pokemon-image-sprite">
-        {url && <Image rounded="md" src={url} alt={pokemon} />}
+    <Box className="background" backgroundImage={`url(${who})`}>
+    </Box>
+    <Box>
+      <Box className="pokemon-image-sprite"> 
+        {url && <Image rounded="md" src={url} alt={pokemon} />} 
       </Box>
-      <h2>{flufftext}</h2>
-    </Flex>
+
+      <Box className="pokemon-flufftext"> 
+        <h1>Din Pokémon: {pokemon}</h1> 
+        <h2>{flufftext}</h2> 
+        <br/>
+        <Button onClick={() => setIsResults(false)}>Prøv igjen</Button>
+      </Box>
+    </Box>
     </>
   );
 };
