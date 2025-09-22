@@ -253,8 +253,8 @@ function getFluffText(pokemon: string, answers: string[]): string {
 /*
     @Params: an ordered array of numbers, corresponding to poke_o_mat.csv
     @Returns: an array consisting of 
-        [0]     a pokemon type as a string
-        [1-4]   the answers formatted as strings
+        [0]   a pokemon
+        [1]   fluff text
 
 */
 
