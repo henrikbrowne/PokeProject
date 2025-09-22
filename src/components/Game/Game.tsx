@@ -10,7 +10,7 @@ const Game = () => {
     const [difficulty, setDifficulty] = React.useState(0);
     const DIFFICULTY_MIN = 0;
     const DIFFICULTY_MAX = 3;
-    const difficultyLabels = ["0 – Easy", "1 – Normal", "2 – Hard", "3 – Expert"];
+    const difficultyLabels = ["Easy", "Normal", "Hard", "Expert"];
 
     const handleClick = (selected:string, expected: string) => () => {
         console.log(`Selected: ${selected}, Expected: ${expected}`);
@@ -22,7 +22,6 @@ const Game = () => {
             setScore(score - 1);
         }
     }
-
 
     const { data, error, isLoading } = useGetAllPokemonNamesQuery();
         if (isLoading) return <p>Loading Pokémons...</p>;
@@ -42,41 +41,59 @@ const Game = () => {
     const randomIndex = Math.floor(Math.random() * selectedPokemons.length);
 
     return (
-        <div className="game-container">
+    <div className="game-container">
+        <h1>Guess the Pokemon</h1>
         <Text className="score-text">Score: {score}</Text>
-        <label className="difficulty-label" htmlFor="difficulty-select">
-        Difficulty
-        </label>
-        <select
-        id="difficulty-select"
-        value={difficulty}
-        onChange={(e) =>
-            setDifficulty(
-            Math.min(DIFFICULTY_MAX, Math.max(DIFFICULTY_MIN, Number(e.target.value)))
-            )
-        }
-        className="difficulty-select"
+
+        <div
+        style={{
+            position: "absolute",
+            top: "5rem",
+            right: "1rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "flex-end",
+            gap: "0.25rem",
+        }}
         >
-        {difficultyLabels.map((label, idx) => (
+        <label htmlFor="difficulty-select" className="difficulty-label">
+            Select difficulty level
+        </label>
+
+        <select
+            id="difficulty-select"
+            value={difficulty}
+            onChange={(e) =>
+            setDifficulty(
+                Math.min(DIFFICULTY_MAX, Math.max(DIFFICULTY_MIN, Number(e.target.value)))
+            )
+            }
+            className="difficulty-select"
+        >
+            {difficultyLabels.map((label, idx) => (
             <option key={idx} value={idx}>
-            {label}
+                {label}
             </option>
-        ))}
-        </select>
-        <CensoredPokemon name={selectedPokemons[randomIndex].name} difficulty={difficulty} />
-        <div className="button-grid">
-            {selectedPokemons.map((pokemon) => (
-                <Button
-                className="pokemon-button"
-                onClick={handleClick(selectedPokemons[randomIndex].name, pokemon.name)}
-                key={pokemon.name}
-                >
-                {pokemon.name}
-                </Button>
             ))}
-            </div>
+        </select>
         </div>
-    )
+
+        <CensoredPokemon name={selectedPokemons[randomIndex].name} difficulty={difficulty} />
+
+        <div className="button-grid">
+        {selectedPokemons.map((pokemon) => (
+            <Button
+            className="pokemon-button"
+            onClick={handleClick(selectedPokemons[randomIndex].name, pokemon.name)}
+            key={pokemon.name}
+            >
+            {pokemon.name}
+            </Button>
+        ))}
+        </div>
+    </div>
+    );
+
 }
 
 export default Game;

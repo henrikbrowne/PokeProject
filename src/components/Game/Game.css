@@ -3,21 +3,21 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 /* Score display */
 .score-text {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
-  color: var(--accent);
+  color: var(--secondary);
 }
 
 /* Difficulty label */
 .difficulty-label {
-  font-size: 1rem;
+  font-size: 0.85rem;
   color: var(--secondary);
-  margin-bottom: 0.5rem;
+  padding-right: 5px;
 }
 
 /* Difficulty select */
@@ -30,6 +30,8 @@
   font-size: 1rem;
   outline: none;
   transition: border 0.2s ease;
+  margin-bottom: 0.5rem;
+  width: 12rem;
 }
 
 .difficulty-select:focus {
@@ -48,6 +50,7 @@
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.2s ease;
+  width: 12rem;
 }
 
 .pokemon-button:hover {
