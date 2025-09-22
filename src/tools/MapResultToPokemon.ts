@@ -148,6 +148,107 @@ function getKeyWithHighestValue(obj: Record<string, number>): string {
   });
 }
 
+function randElem<T>(arr: readonly T[]): T {
+  if (!arr.length) throw new Error("randElem: empty array");
+  const i = Math.floor(Math.random() * arr.length);
+  return arr[i]!;
+}
+
+function getFluffText(pokemon: string, answers: string[]): string {
+  const gratulasjoner = ["Gratulerer", "Flott", "Supert", "Alle tiders"] as const;
+
+  const positiveEgenskaperEntall = [
+    "sterk",
+    "smart",
+    "kul",
+    "modig",
+    "vennlig",
+    "tålmodig",
+    "energisk",
+    "kreativ",
+  ] as const;
+
+  const negativeEgenskaperEntall = [
+    "sta",
+    "utålmodig",
+    "usikker",
+    "rastløs",
+    "selvkritisk",
+    "kaotisk",
+    "humørsyk",
+  ] as const;
+
+  const [superkraftRaw, ferieRaw, beskrivelseRaw, fryktRaw] = answers;
+
+  const superkraft = (superkraftRaw || "").trim();
+  const ferie = (ferieRaw || "").trim();
+  const beskrivelse = (beskrivelseRaw || "").trim();
+  const frykt = (fryktRaw || "").trim();
+
+  const superkraftLinje = (() => {
+    switch (superkraft) {
+      case "Fly":
+        return "Du sikter høyt og lar deg ikke stoppe av små hindringer.";
+      case "Bli bitteliten":
+        return "Du ser detaljer andre overser og finner løsninger i det små.";
+      case "Lese tanker":
+        return "Du leser rommet, forstår folk og tar kloke valg.";
+      case "Sprute ild":
+        return "Du går all-in når du brenner for noe – lidenskapen din smitter.";
+      default:
+        return "Intuisjonen din leder deg i riktig retning i dag.";
+    }
+  })();
+
+  const ferieLinje = (() => {
+    switch (ferie) {
+      case "Fjellet":
+        return "Du lader best i høyden – struktur og frisk luft gir ro.";
+      case "Stranda":
+        return "Du søker varme og lek – enkel glede gir deg energi.";
+      case "Byen":
+        return "Pulsen i nye omgivelser inspirerer deg til å ta initiativ.";
+      case "Skogen":
+        return "Naturen gir deg balanse, og magefølelsen din blir tydeligere.";
+      default:
+        return "Finn et øyeblikk som gir deg påfyll – det løfter alt annet.";
+    }
+  })();
+
+  const beskrivelseLinje = beskrivelse
+    ? `Folk beskriver deg som ${beskrivelse.toLowerCase()}, og i dag merkes det ekstra godt.`
+    : `Styrkene dine kommer tydelig frem i dag.`;
+
+  const fryktLinje = (() => {
+    switch (frykt) {
+      case "Vann":
+        return "Ta små steg inn i det ukjente – du svømmer bedre enn du tror.";
+      case "Ild":
+        return "Bruk gløden med omtanke – du trenger ikke brenne alt kruttet nå.";
+      case "Insekter":
+        return "Småting kan plage, men mister kraft når du møter dem rolig.";
+      case "Mørke":
+        return "Tenn et lite lys – klarhet kommer når du våger å se nærmere.";
+      default:
+        return "Møt det som skremmer deg med nysgjerrighet – det mister grepet.";
+    }
+  })();
+
+  // Litt random krydder
+  const positiv = randElem(positiveEgenskaperEntall);
+  const negativ1 = randElem(negativeEgenskaperEntall);
+  let negativ2 = randElem(negativeEgenskaperEntall);
+  // unngå duplikat som kan høres rart ut: "sta og litt sta"
+  if (negativ2 === negativ1) {
+    negativ2 = randElem(negativeEgenskaperEntall.filter((x) => x !== negativ1));
+  }
+
+  const intro = `${randElem(gratulasjoner)}, du er en ${pokemon}!`;
+  const likhet = `I likhet med ${pokemon} kan du være ${negativ1} og litt ${negativ2} til tider, men vennene dine vet at det er fordi du er ${positiv}.`;
+
+  return `${intro} ${superkraftLinje} ${ferieLinje} ${beskrivelseLinje} ${likhet} ${fryktLinje}`;
+}
+
 
 /*
     @Params: an ordered array of numbers, corresponding to poke_o_mat.csv
@@ -172,10 +273,14 @@ export const mapResultToPokemon = async (answers: number[]): Promise<string[]> =
     result[i] = row[answer + 1];
   }
   console.log("--RESULT FROM ENGINE--")
-  console.log(result)
+  console.log(result[0],result.slice(1,5))
   console.log("--RESULT FROM ENGINE--")
 
-  return result;
+  const returnvalue = []
+  returnvalue[0] = result[0]
+  returnvalue[1] = getFluffText(result[0],result.slice(1,5))
+
+  return returnvalue;
 };
 
 

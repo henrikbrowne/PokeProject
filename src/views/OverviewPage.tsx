@@ -17,6 +17,7 @@ const OverviewPage = () => {
     
     return (
         <>
+        <CsvSmokeTest />
         <Flex backgroundImage={`url(${pokedex})`}
             bgRepeat="no-repeat"
             bgSize="contain"
