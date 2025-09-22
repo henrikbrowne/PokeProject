@@ -11,8 +11,6 @@ const OverviewPage = () => {
 
     if (isLoading) return <p>Loading Pokémons...</p>;
     if (error) return <p>Oh no, something went wrong!</p>
-
-
     
     return (
         <>

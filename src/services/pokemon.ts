@@ -1,6 +1,6 @@
 // Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import type { Pokemon } from './types'
+import type { Pokemon, PokemonSpecies } from './types'
 
 type PokemonListResponse = {
   results: Pokemon[];
@@ -17,9 +17,12 @@ export const pokemonApi = createApi({
     getAllPokemonNames: builder.query<PokemonListResponse, void>({
       query: () => `pokemon?limit=152&offset=0`,
     }),
+    getSpeciesByName: builder.query<PokemonSpecies, string>({
+      query: (name) => `pokemon-species/${name}`,
+    }),
   }),
 })
 
 // Export hooks for usage in functional components, which are
 // auto-generated based on the defined endpoints
-export const { useGetPokemonByNameQuery, useGetAllPokemonNamesQuery } = pokemonApi
+export const { useGetPokemonByNameQuery, useGetAllPokemonNamesQuery, useGetSpeciesByNameQuery } = pokemonApi
