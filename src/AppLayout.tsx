@@ -5,7 +5,8 @@ import Navbar from "./components/Navbar/NavBar";
 import OverviewPage from "./views/OverviewPage";
 import GamePage from "./views/GamePage";
 import Footer from "./components/Footer/Footer";
-import Pokeomat from "./views/Pokeomat";
+import Pokeomat from "./components/Pokeomat";
+import PokeomatPage from "./views/PokeomatPage";
 // import PokeomatResultPage from "./views/PokeomatResultPage";
 
 function AppLayout() {
@@ -23,7 +24,7 @@ function AppLayout() {
           <Route path="/details/:name" element={<DetailsPage />} />
           <Route path="/game" element={<GamePage />}></Route>
           <Route path="/overview" element={<OverviewPage />}></Route>
-          <Route path="/pokeomat" element={<Pokeomat />}></Route>
+          <Route path="/pokeomat" element={<PokeomatPage />}></Route>
           {/* <Route path="/pokeomat/result" element={<PokeomatResultPage />}></Route> */}
         </Routes>
         <Footer />

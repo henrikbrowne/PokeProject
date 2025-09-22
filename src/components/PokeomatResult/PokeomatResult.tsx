@@ -1,4 +1,4 @@
-import { useGetPokemonByNameQuery } from "@/services/pokemon";
+import { useGetPokemonByNameQuery } from "../../services/pokemon";
 import { Image } from '@chakra-ui/react'
 import { useEffect, useState } from "react";
 
@@ -11,14 +11,6 @@ const PokeomatResult = ({ pokemon, flufftext }: PokeomatResultProps) => {
 
   const [showImage, setShowImage] = useState(false);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowImage(true);
-    }, 2000);
-
-    // cleanup if component unmounts early
-    return () => clearTimeout(timer);
-  }, []);
 
    
 

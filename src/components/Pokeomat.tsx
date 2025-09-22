@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import QuestionBox from "../components/QuestionBox/QuestionBox";
+import QuestionBox from "./QuestionBox/QuestionBox";
 import { useNavigate } from "react-router-dom";
 import { mapResultToPokemon } from "../tools/MapResultToPokemon";
 
@@ -22,7 +22,13 @@ const questions = [
   },
 ];
 
-const Pokeomat = () => {
+interface PokeomatProps {
+  setIsResults: (value: boolean) => void,
+  setPokemon: (value: string) => void,
+  setFlufftext: (value: string) => void
+}
+
+const Pokeomat = ({setIsResults, setPokemon, setFlufftext}: PokeomatProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
 
@@ -47,7 +53,10 @@ const Pokeomat = () => {
         console.log("Quiz finished! Numeric Answers:", numericAnswers);
 
         mapResultToPokemon(numericAnswers).then((result) => {
-        navigate("pokeomat/results", { state: { answers: numericAnswers, result } });
+          setIsResults(true)
+          setPokemon(result[0])
+          setFlufftext(result[1])
+
         });
     }
   }
