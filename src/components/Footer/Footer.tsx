@@ -4,9 +4,11 @@ import instagramIcon from "../../assets/instagram.png";
 import linkedinIcon from "../../assets/linkedin.png";
 import youtubeIcon from "../../assets/youtube.png";
 import whatsappIcon from "../../assets/whatsapp.png";
+import CustomerService from './CustomerService';
 
 export default function Footer() {
   return (
+    <>
     <footer className="footer">
       <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
         <img src={facebookIcon} alt="Home" className="nav-icon" />
@@ -23,6 +25,8 @@ export default function Footer() {
       <a href="https://whatsapp.com" target="_blank" rel="noopener noreferrer">
         <img src={whatsappIcon} alt="WhatsApp" className="footer-icon" />
       </a>
+        <CustomerService />
     </footer>
+  </>
   );
 }
