@@ -22,7 +22,7 @@ function AppLayout() {
           <Route path="/details/:name" element={<DetailsPage />} />
           <Route path="/game" element={<GamePage />}></Route>
           <Route path="/overview" element={<OverviewPage />}></Route>
-          <Route path="/result" element={<PokeomatResultPage />}></Route>
+          <Route path="/pokeomat/result" element={<PokeomatResultPage />}></Route>
         </Routes>
         <Footer />
       </div>

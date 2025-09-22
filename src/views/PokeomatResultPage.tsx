@@ -11,7 +11,6 @@ const PokeomatResultPage = () => {
         <>
             <h1>Poke-O-Mat</h1>
             <PokeomatResult input={input} />
-
         </>
     )
 }
