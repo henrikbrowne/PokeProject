@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar/NavBar";
 import OverviewPage from "./views/OverviewPage";
 import GamePage from "./views/GamePage";
 import Footer from "./components/Footer/Footer";
+import Pokeomat from "./views/Pokeomat";
 
 function AppLayout() {
   const location = useLocation();
@@ -21,6 +22,7 @@ function AppLayout() {
           <Route path="/details/:name" element={<DetailsPage />} />
           <Route path="/game" element={<GamePage />}></Route>
           <Route path="/overview" element={<OverviewPage />}></Route>
+          <Route path="/pokeomat" element={<Pokeomat />}></Route>
         </Routes>
         <Footer />
       </div>

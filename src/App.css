@@ -54,6 +54,11 @@ button:hover {
 
 h1, h2, h3 {
   color: var(--accent); 
+  font-weight: bold;
+}
+
+h1 {
+  font-size: xx-large;
 }
 
 html {

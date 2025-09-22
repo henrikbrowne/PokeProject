@@ -19,6 +19,10 @@ export default function NavBar() {
       <NavLink to="/game" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
         Game
       </NavLink>
+
+      <NavLink to="/pokeomat" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+        Pokeomat
+      </NavLink>
     </nav>
   );
 }

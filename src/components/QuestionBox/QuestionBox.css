@@ -1,0 +1,58 @@
+.box-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background: var(--primary);
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(34, 33, 37, 0.1);
+  min-height: 300px;
+  min-width: 500px;
+  margin-top: 50px;
+}
+
+.questions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--secondary);
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-direction: row-reverse;
+}
+
+button {
+  width: 80px;
+}
+
+.button-group button:disabled {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border-color: var(--secondary);
+}
+
+
+p {
+  color: var(--secondary); 
+  margin: 0;
+}
+
+.button-next {
+    border-color: var(--accent);
+    background-color: var(--accent);
+    color: var(--primary);
+}
+
+.button-back {
+    border-color: var(--accent);
+    background-color: var(--primary);
+    color: var(--accent);
+}
+
+
