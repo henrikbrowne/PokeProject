@@ -1,0 +1,16 @@
+.pokemon-image-sprite {
+  position: absolute;
+  left: 33%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  animation: grow 20s ease-out forwards;
+}
+
+@keyframes grow {
+  from {
+    transform: translate(-50%, -50%) scale(0.01);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(10);
+  }
+}
