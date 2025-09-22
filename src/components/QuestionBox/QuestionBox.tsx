@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import './QuestionBox.css'
 
 type Option = {
-  id: string;
+  id: number;
   label: string;
 };
 
 type QuestionBoxProps = {
-  question: string;
-  options: Option[];
-  currentIndex: number;
-  total: number;
-  initialValue?: string;
-  onAnswer: (value: string) => void;
-  onNext: () => void;
-  onBack: () => void;
+    question: string;
+    options: Option[];
+    currentIndex: number;
+    total: number;
+    initialValue?: number;
+    onAnswer: (value: number) => void;
+    onNext: () => void;
+    onBack: () => void;
 };
 
 const QuestionBox: React.FC<QuestionBoxProps> = ({
@@ -27,13 +27,13 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
   onNext,
   onBack,
 }) => {
-  const [selected, setSelected] = useState<string>(initialValue || "");
+  const [selected, setSelected] = useState<number | undefined>();
 
   useEffect(() => {
-    setSelected(initialValue || "");
+    setSelected(initialValue);
   }, [initialValue]);
 
-  function handleChange(value: string) {
+  function handleChange(value: number) {
     setSelected(value);
     onAnswer(value);
   }
@@ -48,14 +48,14 @@ const QuestionBox: React.FC<QuestionBoxProps> = ({
             <div key={option.id} className="questions">
                 <input
                 type="radio"
-                id={option.id}
+                id={String(option.id)}
                 name={`question-${currentIndex}`}
                 value={option.id}
                 checked={selected === option.id}
                 onChange={() => handleChange(option.id)}
                 className="w-5 h-5"
                 />
-                <label htmlFor={option.id} className="mt-2 text-sm">
+                <label htmlFor={String(option.id)} className="mt-2 text-sm">
                 {option.label}
                 </label>
             </div>
