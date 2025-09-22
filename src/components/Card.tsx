@@ -105,13 +105,19 @@ const Card: React.FC<CardProps> = ({ name, hp, abilityNames, type, image }) => {
           <Text fontSize="sm" fontWeight="semibold">
             HP {hp}
           </Text>
-          <Image
-                  src={PokemonTypeImages[type]}
-                  alt={type}
-                  objectFit="contain"
-                  w="25px"
-                  h="25px"
-                />
+          {type === "" ? (
+            <Text fontSize="sm" fontWeight="bold" color="var(--primary)">
+              ?
+            </Text>
+          ) : (
+            <Image
+              src={PokemonTypeImages[type]}
+              alt={type}
+              objectFit="contain"
+              w="25px"
+              h="25px"
+            />
+          )}
         </HStack> 
       </HStack>
 
