@@ -8,7 +8,7 @@ const PokeomatPage = () => {
     const [flufftext, setFlufftext] = useState("")
 
     return <>
-        {isResults && <PokeomatResult pokemon={pokemon} flufftext={flufftext}/>}
+        {isResults && <PokeomatResult pokemon={pokemon} flufftext={flufftext} setIsResults={setIsResults}/>}
         {!isResults && <Pokeomat 
         setIsResults= {setIsResults}
         setPokemon = {setPokemon}
