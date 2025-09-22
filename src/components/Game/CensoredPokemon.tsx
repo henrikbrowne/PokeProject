@@ -20,7 +20,7 @@ const CensoredPokemon = ({name, difficulty}:CensoredPokemonProps) => {
     
 
     return (
-        <Card name={"GUESS THE NAME"} hp={pHp} abilityNames={pAbilities} type={pType} image={pImage}></Card>
+        <Card name={"???"} hp={pHp} abilityNames={pAbilities} type={pType} image={pImage}></Card>
     )
 }
 
