@@ -18,7 +18,8 @@ const CensoredPokemon = ({name, difficulty}:CensoredPokemonProps) => {
 
     
     
-
+    console.log(pType);
+    
     return (
         <Card name={"???"} hp={pHp} abilityNames={pAbilities} type={pType} image={pImage}></Card>
     )
